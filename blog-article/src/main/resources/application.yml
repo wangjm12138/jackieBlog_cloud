@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    username: root
+    password: mysql6779755
+    url: jdbc:mysql://175.178.122.46:3306/jackieblog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+  application:
+    name: blog-article
+# 应用服务 WEB 访问端口
+server:
+  port: 9081
+  address: 0.0.0.0
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto # 主键自增
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+logging:
+  file:
+    name: jackie.log
+  logback:
+    rollingpolicy:
+      max-history: 60
+      max-file-size: 100MB
+
+file:
+  upload:
+    protocol: http://
+
+    summaryDir: /summary
+    #注意md文件存放位置,注意最后结尾是'/'
+    abpath: E:/Nodejs_workspace/myblog_final_github/Myblog2/md/
+
+    #url md存放图像的路径映射
+    mdImageDir: /assets/**
+
+    #url md存放封面的路径映射
+    coverImageDir: /cover/**

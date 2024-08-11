@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jackie.jackieBlog</groupId>
+    <artifactId>JackieBlog_cloud</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>JackieBlog_cloud</name>
+    <description>JackieBlog_cloud</description>
+    <properties>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-boot.version>3.0.2</spring-boot.version>
+        <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
+        <spring-cloud.version>2022.0.0-RC2</spring-cloud.version>
+    </properties>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>blog-article</module>
+        <module>blog-common</module>
+        <module>blog-mail</module>
+        <module>blog-gateway</module>
+    </modules>
+
+</project>

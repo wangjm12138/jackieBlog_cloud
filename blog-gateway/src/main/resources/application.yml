@@ -1,0 +1,11 @@
+# 注册中心的信息
+
+server:
+  port: 8070
+spring:
+  application:
+    name: blog-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848

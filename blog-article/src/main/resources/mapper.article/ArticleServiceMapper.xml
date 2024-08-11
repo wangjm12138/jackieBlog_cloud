@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.jackieblog.jackieblog.mapper.ArticleServiceMapper">
+
+    <resultMap id="articleMap" type="org.jackieblog.jackieblog.model.Article">
+        <id column="id" property="id" />
+        <result column="author_id" property="authorId"/>
+        <result column="comment_num" property="commentNum"/>
+        <result column="create_date" property="createDate"/>
+        <result column="summary" property="summary"/>
+        <result column="title" property="title"/>
+        <result column="look_num" property="lookNum"/>
+        <result column="love_num" property="loveNum"/>
+        <result column="weight" property="weight"/>
+        <result column="body_id" property="bodyId"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="cover" property="cover"/>
+    </resultMap>
+
+
+    <select id="listArticle" resultMap="articleMap">
+        select * from jw_article
+        <where>
+            1 = 1
+            <if test="categoryId != null">
+                and category_id=#{categoryId}
+            </if>
+            <if test="tagId != null">
+                and id in (select article_id from jw_article_tag where tag_id=#{tagId})
+            </if>
+            <if test="year != null and year.length>0 and month != null and month.length>0">
+               and (FROM_UNIXTIME(create_date/1000,'%Y') =#{year} and FROM_UNIXTIME(create_date/1000,'%m')=#{month})
+            </if>
+        </where>
+        order by weight,create_date desc
+    </select>
+
+
+    <select id="listArticleTop" resultMap="articleMap">
+        select * from jw_article order by look_num desc limit 3
+    </select>
+
+    <select id="listArticleRecent" resultMap="articleMap">
+        select * from jw_article order by create_date desc limit 6
+    </select>
+</mapper>
