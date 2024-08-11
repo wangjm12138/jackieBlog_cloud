@@ -51,12 +51,12 @@ public class SysUserService {
         return sysUser;
     }
 
-    public SysUser findUserByUsername(String Username) {
-        LambdaQueryWrapper<SysUser> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(SysUser::getUsername,Username);
-        queryWrapper.last("limit 1");
-        return this.sysUserServiceMapper.selectOne(queryWrapper);
-    }
+//    public SysUser findUserByUsername(String Username) {
+//        LambdaQueryWrapper<SysUser> queryWrapper = new LambdaQueryWrapper<>();
+//        queryWrapper.eq(SysUser::getUsername,Username);
+//        queryWrapper.last("limit 1");
+//        return this.sysUserServiceMapper.selectOne(queryWrapper);
+//    }
 
     public SysUser findUserByEmail(String email) {
         LambdaQueryWrapper<SysUser> queryWrapper = new LambdaQueryWrapper<>();
