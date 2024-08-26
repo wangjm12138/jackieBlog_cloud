@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jackie.jackieblog.article.entity.Article;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,10 +14,11 @@ public interface ArticleServiceMapper extends BaseMapper<Article> {
 
 
     IPage<Article> listArticle(Page<Article> page,
-                               Long categoryId,
-                               Long tagId,
-                               String year,
-                               String month);
+                               @Param("categoryId") Long categoryId,
+                               @Param("tagId") Long tagId,
+                               @Param("year")String year,
+                               @Param("month")String month);
+
 
     List<Article> listArticleTop();
 

@@ -22,8 +22,25 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!-- web -->
 
+        <!-- log4j2 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+        </dependency>
+        <!-- log4j2 -->
         <!-- 添加lombok的依赖 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -42,7 +59,6 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.7</version>
         </dependency>
-
         <!-- alibaba cloud -->
 <!--        <dependency>-->
 <!--            <groupId>com.alibaba.cloud</groupId>-->

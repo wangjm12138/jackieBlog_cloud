@@ -16,20 +16,25 @@ server:
   address: 0.0.0.0
 
 mybatis-plus:
-  mapper-locations: classpath*:/mapper/**/*.xml
+  mapper-locations: classpath*:/mapper.article/*.xml
   global-config:
     db-config:
-      id-type: auto # 主键自增
-      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
-      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+#      id-type: auto # 主键自增
+#      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+#      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+      table-prefix: jw_
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-logging:
-  file:
-    name: jackie.log
-  logback:
-    rollingpolicy:
-      max-history: 60
-      max-file-size: 100MB
+#logging:
+#  file:
+#    name: jackie.log
+#  logback:
+#    rollingpolicy:
+#      max-history: 60
+#      max-file-size: 100MB
+#logging:
+#  config: log4j2-spring.xml
 
 file:
   upload:

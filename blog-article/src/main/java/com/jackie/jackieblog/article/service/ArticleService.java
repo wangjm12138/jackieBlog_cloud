@@ -3,8 +3,8 @@ package com.jackie.jackieblog.article.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.jackie.jackieblog.article.dao.ArticleMapper;
 
+import com.jackie.jackieblog.article.dao.ArticleServiceMapper;
 import com.jackie.jackieblog.article.entity.Article;
 import com.jackie.jackieblog.article.entity.SysUser;
 import com.jackie.jackieblog.article.utils.PageParams;
@@ -12,6 +12,7 @@ import com.jackie.jackieblog.article.vo.ArticleVo;
 import com.jackie.jackieblog.article.vo.UserVo;
 import com.jackie.jackieblog.article.vo.WrapperToFrontend;
 import com.jackie.jackieblog.common.vo.Result;
+import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ import java.util.List;
  * @Blog: http://www.jackieblog.top
  * @Date: 2023年02月19日 19:59
  */
+@Slf4j
 @Service
 public class ArticleService {
     @Value("${file.upload.protocol}")
@@ -41,7 +43,7 @@ public class ArticleService {
 
 
     @Autowired
-    private ArticleMapper articleMapper;
+    private ArticleServiceMapper articleServiceMapper;
 
 
     @Autowired
@@ -57,7 +59,7 @@ public class ArticleService {
 
 
     public Result listArticleTop() {
-        List<Article> records = articleMapper.listArticleTop();
+        List<Article> records = articleServiceMapper.listArticleTop();
         List<ArticleVo> articleVoList = new ArrayList<>();
         for (Article record : records) {
             articleVoList.add(copy(record,false,false,false,false));
@@ -67,7 +69,7 @@ public class ArticleService {
     }
 
     public Result listArticleRecent() {
-        List<Article> records = articleMapper.listArticleRecent();
+        List<Article> records = articleServiceMapper.listArticleRecent();
         List<ArticleVo> articleVoList = new ArrayList<>();
         for (Article record : records) {
             articleVoList.add(copy(record,false,false,false,false));
@@ -77,8 +79,10 @@ public class ArticleService {
 
     public Result listArticle(PageParams pageParams) {
         Page<Article> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
-
-        IPage<Article> articleIPage = articleMapper.listArticle(
+        System.out.println("jackie");
+        System.out.println("tagID: "+pageParams.getTagId()+" categoryID:"+ pageParams.getCategoryId());
+        //System.out.println();
+        IPage<Article> articleIPage = articleServiceMapper.listArticle(
                 page,
                 pageParams.getCategoryId(),
                 pageParams.getTagId(),

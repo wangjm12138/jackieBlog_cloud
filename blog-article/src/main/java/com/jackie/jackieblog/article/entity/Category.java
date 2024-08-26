@@ -15,7 +15,13 @@ public class Category {
 
     private Long id;
 
-    private Integer article_id;
+    private String avatar;
+
+    private String categoryName;
+
+    private String description;
+
+    private Integer amount;
 //
 //    private String name;
 }
