@@ -79,9 +79,6 @@ public class ArticleService {
 
     public Result listArticle(PageParams pageParams) {
         Page<Article> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
-        System.out.println("jackie");
-        System.out.println("tagID: "+pageParams.getTagId()+" categoryID:"+ pageParams.getCategoryId());
-        //System.out.println();
         IPage<Article> articleIPage = articleServiceMapper.listArticle(
                 page,
                 pageParams.getCategoryId(),

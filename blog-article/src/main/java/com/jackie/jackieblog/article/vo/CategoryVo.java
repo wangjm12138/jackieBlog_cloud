@@ -1,15 +1,20 @@
 package com.jackie.jackieblog.article.vo;
 
+import com.jackie.jackieblog.article.entity.CategoryDetails;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class CategoryVo {
 
-    private String id;
+    private Integer id;
 
-    private String avatar;
+    private String name;
 
-    private String categoryName;
+    private Integer menuId;
 
-    private String description;
+    private Integer amount;
+
+    private List<CategoryDetails> details;
 }

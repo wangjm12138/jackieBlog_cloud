@@ -59,6 +59,15 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.7</version>
         </dependency>
+
+        <!-- 连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.24</version>
+        </dependency>
+
+
         <!-- alibaba cloud -->
 <!--        <dependency>-->
 <!--            <groupId>com.alibaba.cloud</groupId>-->

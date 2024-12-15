@@ -3,23 +3,19 @@ package com.jackie.jackieblog.article.entity;
 import lombok.Data;
 
 /**
- * @version 1.0.0
  * @Author: Jackie Wang
- * @WechatID: star373629168
+ * @WechatID: ilovepython12138
  * @GitHub: https://github.com/wangjm12138
- * @Blog: http://www.jackieblog.com
- * @Date: 2024/12/13 06:18
+ * @Blog: http://www.jackieblog.top
+ * @Date: 2023年06月23日 18:05
+ * @Description:
  */
 @Data
-public class Category {
+public class Menu {
 
     private Integer id;
 
     private String name;
 
-    private Integer menuId;
-
     private Integer amount;
-
-
 }

@@ -1,19 +1,13 @@
 package com.jackie.jackieblog.article;
 
 import com.jackie.jackieblog.article.dao.TagServiceMapper;
-import com.jackie.jackieblog.article.entity.Tag;
 import com.jackie.jackieblog.article.service.CategoryService;
-import com.jackie.jackieblog.article.service.TagService;
-import com.jackie.jackieblog.common.vo.Result;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 //@Slf4j
 @SpringBootTest

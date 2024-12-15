@@ -13,28 +13,23 @@ import lombok.Data;
 @Data
 public class Article {
 
-    public static final int Article_TOP = 1;
-
-    public static final int Article_Common = 0;
+//    public static final int Article_TOP = 1;
+//
+//    public static final int Article_Common = 0;
 
     private Long id;
 
-    /**
-     * 创建时间
-     */
-    private Long createDate;
-
-
     private String title;
 
-    private String summary;
+    private Long createDate;
 
-    private Integer commentNum;
+    private String summary;
 
     private Integer lookNum;
 
     private Integer loveNum;
 
+    private Integer commentNum;
 
     /**
      * 置顶
@@ -44,12 +39,7 @@ public class Article {
     /**
      * 内容id
      */
-    private Long bodyId;
-    /**
-     *类别id
-     */
-
-    private Long categoryId;
+    private Long articleBodyId;
 
     /**
      * 作者id
@@ -57,7 +47,13 @@ public class Article {
     private Long authorId;
 
     /**
-     * cover
+     *类别id
      */
-    private String cover;
+    private Long categoryId;
+
+    /**
+     *类别id
+     */
+    private Long categoryDetailsId;
+
 }

@@ -8,18 +8,15 @@ import lombok.Data;
  * @WechatID: star373629168
  * @GitHub: https://github.com/wangjm12138
  * @Blog: http://www.jackieblog.com
- * @Date: 2024/12/13 06:18
+ * @Date: 2024/12/13 06:33
  */
 @Data
-public class Category {
-
+public class CategoryDetails {
     private Integer id;
 
     private String name;
 
-    private Integer menuId;
+    private Integer CategoryId;
 
     private Integer amount;
-
-
 }

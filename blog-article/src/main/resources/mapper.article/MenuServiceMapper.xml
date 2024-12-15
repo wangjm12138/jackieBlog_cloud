@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jackie.jackieblog.article.dao.MenuServiceMapper">
+
+    <resultMap id="Menu" type="com.jackie.jackieblog.article.entity.Menu">
+        <id column="id" property="id" />
+        <result column="name" property="name"/>
+        <result column="amount" property="amount"/>
+    </resultMap>
+
+
+    <select id="listMenu" resultMap="Menu">
+        select * from jw_menu
+    </select>
+
+</mapper>

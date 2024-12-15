@@ -27,11 +27,7 @@ public class ArticleController {
      */
     @PostMapping
     public Result listArticle(@RequestBody PageParams pageParams){
-//        try {
-//            Thread.sleep(3000); // 1000毫秒 = 1秒
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+
         return articleService.listArticle(pageParams);
     }
     @GetMapping("/test")

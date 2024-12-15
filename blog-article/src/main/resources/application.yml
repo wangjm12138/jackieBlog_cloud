@@ -4,10 +4,14 @@ spring:
     password: mysql6779755
     url: jdbc:mysql://175.178.122.46:3306/jackieblog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # Druid datasource
+
+
+
   cloud:
     nacos:
       discovery:
-        server-addr: http://localhost:8848
+        server-addr: http://127.0.0.1:8848
   application:
     name: blog-article
 # 应用服务 WEB 访问端口
