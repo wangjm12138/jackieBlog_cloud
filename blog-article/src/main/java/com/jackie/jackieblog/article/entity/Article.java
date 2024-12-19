@@ -2,6 +2,9 @@ package com.jackie.jackieblog.article.entity;
 
 import lombok.Data;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 
 /**
  * @Author:  Jackie Wang
@@ -17,11 +20,11 @@ public class Article {
 //
 //    public static final int Article_Common = 0;
 
-    private Long id;
+    private Integer id;
 
     private String title;
 
-    private Long createDate;
+    private Timestamp createDate;
 
     private String summary;
 

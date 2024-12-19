@@ -26,13 +26,6 @@ public class ArticleVo {
      */
     private String createDate;
 
-    private UserVo author;
+//    private CategoryVo category;
 
-//    private ArticleBodyVo body;
-
-    private List<TagVo> tags;
-
-    private CategoryVo category;
-
-    private String cover;
 }

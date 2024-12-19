@@ -6,10 +6,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import com.jackie.jackieblog.article.dao.ArticleServiceMapper;
 import com.jackie.jackieblog.article.entity.Article;
-import com.jackie.jackieblog.article.entity.SysUser;
 import com.jackie.jackieblog.article.utils.PageParams;
 import com.jackie.jackieblog.article.vo.ArticleVo;
-import com.jackie.jackieblog.article.vo.UserVo;
 import com.jackie.jackieblog.article.vo.WrapperToFrontend;
 import com.jackie.jackieblog.common.vo.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -33,13 +31,13 @@ import java.util.List;
 @Slf4j
 @Service
 public class ArticleService {
-    @Value("${file.upload.protocol}")
-    private String protocol;
-    @Value("${server.port}")
-    private String port;
-
-    @Value("${server.address}")
-    private String address;
+//    @Value("${file.upload.protocol}")
+//    private String protocol;
+//    @Value("${server.port}")
+//    private String port;
+//
+//    @Value("${server.address}")
+//    private String address;
 
 
     @Autowired
@@ -62,7 +60,7 @@ public class ArticleService {
         List<Article> records = articleServiceMapper.listArticleTop();
         List<ArticleVo> articleVoList = new ArrayList<>();
         for (Article record : records) {
-            articleVoList.add(copy(record,false,false,false,false));
+            articleVoList.add(copy(record));
         }
 
         return Result.success(articleVoList);
@@ -72,7 +70,7 @@ public class ArticleService {
         List<Article> records = articleServiceMapper.listArticleRecent();
         List<ArticleVo> articleVoList = new ArrayList<>();
         for (Article record : records) {
-            articleVoList.add(copy(record,false,false,false,false));
+            articleVoList.add(copy(record));
         }
         return Result.success(articleVoList);
     }
@@ -93,7 +91,7 @@ public class ArticleService {
 //                record.setViewCounts(Integer.parseInt(viewCount));
 //            }
 //        }
-        List<ArticleVo> recordsVo = copyList(records,false,true);
+        List<ArticleVo> recordsVo = copyList(records);
         WrapperToFrontend wrapperRecordsVo = new WrapperToFrontend();
         wrapperRecordsVo.setPageNum(articleIPage.getCurrent());
         wrapperRecordsVo.setPages(articleIPage.getPages());
@@ -109,40 +107,22 @@ public class ArticleService {
     }
 
 
-    private List<ArticleVo> copyList(List<Article> records, boolean isTag, boolean isAuthor) {
+    private List<ArticleVo> copyList(List<Article> records) {
 
         List<ArticleVo> articleVoList = new ArrayList<>();
         for (Article record : records) {
-            articleVoList.add(copy(record,isTag,isAuthor,false,false));
+            articleVoList.add(copy(record));
         }
         return articleVoList;
     }
 
-     private ArticleVo copy(Article article, boolean isTag, boolean isAuthor, boolean isBody,boolean isCategory) {
+     private ArticleVo copy(Article article) {
 
         ArticleVo articleVo = new ArticleVo();
         articleVo.setId(String.valueOf(article.getId()));
         BeanUtils.copyProperties(article,articleVo);
 
-        articleVo.setCreateDate(new DateTime(article.getCreateDate()).toString("yyyy-MM-dd HH:mm"));
-        articleVo.setCover(article.getCover());
-        //并不是所有的接口 都需要标签 ，作者信息
-        if (isTag){
-            Long articleId = article.getId();
-            articleVo.setTags(tagService.findTagsByArticleId(articleId));
-        }
-
-        if (isAuthor){
-
-            Long authorId = article.getAuthorId();
-            SysUser sysUser = sysUserService.findUserById(authorId);
-            UserVo userVo = new UserVo();
-            userVo.setAvatar(sysUser.getAvatar());
-            userVo.setId(sysUser.getId().toString());
-            userVo.setNickname(sysUser.getNickname());
-            articleVo.setAuthor(userVo);
-        }
-
+        articleVo.setCreateDate(article.getCreateDate().toString());
 
 
 //        if (isBody){
