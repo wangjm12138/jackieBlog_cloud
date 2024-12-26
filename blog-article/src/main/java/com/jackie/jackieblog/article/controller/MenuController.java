@@ -25,9 +25,9 @@ public class MenuController {
         return menuService.listMenu();
     }
 
-//    @GetMapping("/{id}/ariticle")
-//    public Result listArticleByMenuId(@PathVariable("id") Integer id) {
-//
-//        return menuService.listArticleByMenuId();
-//    }
+    @GetMapping("/{id}/all")
+    public Result listArticleByMenuId(@PathVariable("id") Integer id) {
+
+        return menuService.listArticleByMenuId(id);
+    }
 }

@@ -20,7 +20,7 @@ public class Article {
 //
 //    public static final int Article_Common = 0;
 
-    private Integer id;
+    private Long id;
 
     private String title;
 
@@ -39,10 +39,6 @@ public class Article {
      */
     private Integer weight;
 
-    /**
-     * 内容id
-     */
-    private Long articleBodyId;
 
     /**
      * 作者id

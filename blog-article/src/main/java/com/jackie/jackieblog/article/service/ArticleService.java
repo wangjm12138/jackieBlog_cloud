@@ -31,14 +31,6 @@ import java.util.List;
 @Slf4j
 @Service
 public class ArticleService {
-//    @Value("${file.upload.protocol}")
-//    private String protocol;
-//    @Value("${server.port}")
-//    private String port;
-//
-//    @Value("${server.address}")
-//    private String address;
-
 
     @Autowired
     private ArticleServiceMapper articleServiceMapper;

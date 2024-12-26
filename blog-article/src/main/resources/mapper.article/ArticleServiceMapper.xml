@@ -21,7 +21,7 @@
 
 
     <select id="listArticle" resultMap="articleMap">
-        select * from jw_article2
+        select * from jw_article
         <where>
             1 = 1
             <if test="categoryId != null">

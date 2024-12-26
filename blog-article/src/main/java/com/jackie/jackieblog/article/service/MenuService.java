@@ -3,6 +3,7 @@ package com.jackie.jackieblog.article.service;
 import com.jackie.jackieblog.article.dao.CategoryServiceMapper;
 import com.jackie.jackieblog.article.dao.MenuServiceMapper;
 import com.jackie.jackieblog.article.entity.Menu;
+import com.jackie.jackieblog.article.vo.MenuByIdVo;
 import com.jackie.jackieblog.common.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,15 +25,13 @@ public class MenuService {
     private MenuServiceMapper menuServiceMapper;
     public Result listMenu() {
 
-
         List<Menu> records = menuServiceMapper.listMenu();
         return Result.success(records);
     }
 
-//    public Result listArticleByMenuId() {
-//
-//
-//        List<Menu> records = menuServiceMapper.listMenu();
-//        return Result.success(records);
-//    }
+    public Result listArticleByMenuId(Integer id) {
+
+        List<MenuByIdVo> records = menuServiceMapper.listArticleByMenuId(id);
+        return Result.success(records);
+    }
 }
