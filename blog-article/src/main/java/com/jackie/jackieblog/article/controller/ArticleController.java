@@ -1,5 +1,6 @@
 package com.jackie.jackieblog.article.controller;
 
+import com.jackie.jackieblog.article.service.ArticleBodyService;
 import com.jackie.jackieblog.article.service.ArticleService;
 import com.jackie.jackieblog.article.utils.PageParams;
 import com.jackie.jackieblog.common.vo.Result;
@@ -20,6 +21,9 @@ public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
+
+    @Autowired
+    private ArticleBodyService articleBodyService;
     /**
      * 首页 文章列表
      * @param
@@ -30,6 +34,15 @@ public class ArticleController {
 
         return articleService.listArticle(pageParams);
     }
+
+    @GetMapping("/detail/{Id}")
+    public Result listArticleDetail(@PathVariable("Id") Long id) {
+
+        System.out.println(id);
+
+        return articleBodyService.searchArticleById(id);
+    }
+
     @GetMapping("/test")
     public Result listArticleTop() {
 
@@ -61,13 +74,7 @@ public class ArticleController {
 //    @Autowired
 //    private ArticleBodyService articleBodyService;
 //
-//    @GetMapping("/detail/{Id}")
-//    public Result listArticleDetail(@PathVariable("Id") String Id) {
-//
-////        System.out.println(Id);
-//
-//        return articleBodyService.searchArticleById(Id);
-//    }
+
 
 
 }

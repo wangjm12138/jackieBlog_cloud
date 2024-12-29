@@ -6,13 +6,13 @@
 
     <resultMap id="articleBodyMap" type="com.jackie.jackieblog.article.entity.ArticleBody">
         <id column="id" property="id" />
-        <result column="content" property="content"/>
         <result column="content_html" property="contentHtml"/>
+        <result column="article_id" property="articleId"/>
     </resultMap>
 
 
-<!--    <select id="searchArticleById" resultMap="articleBodyMap">-->
-<!--        select * from jw_article_body where id = #{id}-->
-<!--    </select>-->
+    <select id="searchArticleById" resultMap="articleBodyMap">
+        select * from jw_article_body where article_id=#{id}
+    </select>
 
 </mapper>

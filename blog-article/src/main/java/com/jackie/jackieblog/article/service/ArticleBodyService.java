@@ -1,10 +1,13 @@
 package com.jackie.jackieblog.article.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jackie.jackieblog.article.dao.ArticleBodyServiceMapper;
 import com.jackie.jackieblog.article.entity.ArticleBody;
 import com.jackie.jackieblog.common.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 /**
  * @Author: Jackie Wang
@@ -23,9 +26,9 @@ public class ArticleBodyService {
 
 
 
-    public Result searchArticleById(String Id){
+    public Result searchArticleById(Long id){
 
-        ArticleBody records = articleBodyServiceMapper.selectById(Id);
-        return Result.success(records);
+        ArticleBody record = articleBodyServiceMapper.searchArticleById(id);
+        return Result.success(record);
     }
 }
