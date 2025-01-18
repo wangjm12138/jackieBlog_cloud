@@ -18,6 +18,10 @@
         <result column="amount" property="amount"/>
     </resultMap>
 
+    <select id="listCategoryByMenuId" resultMap="Category">
+        select * from jw_category where menu_id=#{MenuId}
+    </select>
+
     <select id="listCategoryById" resultMap="Category">
         select * from jw_category where id=#{categoryId}
     </select>

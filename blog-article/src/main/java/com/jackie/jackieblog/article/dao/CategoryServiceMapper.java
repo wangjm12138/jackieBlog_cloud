@@ -7,9 +7,8 @@ import com.jackie.jackieblog.article.entity.Menu;
 import java.util.List;
 
 public interface CategoryServiceMapper {
-//    List<Category> listCategoryAllById(Integer CategoryId);
-//
-//    List<CategoryDetails> listDetailsByCategoryId(Integer CategoryId);
+
+    List<Category> listCategoryByMenuId(Integer MenuId);
 
     Category listCategoryById(Integer CategoryId);
 

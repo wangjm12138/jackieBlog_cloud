@@ -24,8 +24,11 @@
         select * from jw_article
         <where>
             1 = 1
-            <if test="categoryId != null">
-                and category_id=#{categoryId}
+            <if test="categoryIdList != null">
+                 and category_id IN
+                <foreach item="categoryIditem" collection="categoryIdList" open="(" separator="," close=")" index="">
+                    #{categoryIditem}
+                </foreach>
             </if>
         </where>
         order by weight,create_date desc
@@ -33,7 +36,7 @@
 
 
     <select id="listArticleTop" resultMap="articleMap">
-        select * from jw_article order by look_num desc limit 3
+        select * from jw_article order by look_num desc limit 4
     </select>
 
     <select id="listArticleRecent" resultMap="articleMap">

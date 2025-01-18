@@ -25,7 +25,7 @@
     </select>
 
 
-    <select id="listArticleByMenuId" resultMap="MenuByIdVo">
+    <select id="listAllCategoryByMenuId" resultMap="MenuByIdVo">
         SELECT jc.id as categoryId, jc.name as categoryName, jc.amount as categoryAmount, jcd.id as categoryDetailsId, jcd.name as categoryDetailsName, jcd.amount as categoryDetailsAmount
         FROM `jw_category` jc left join jw_category_details jcd on jc.id = jcd.category_id where jc.menu_id = #{id} ORDER BY jc.name, jcd.`name`
     </select>

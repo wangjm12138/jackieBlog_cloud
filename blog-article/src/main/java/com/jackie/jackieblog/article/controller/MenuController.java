@@ -21,13 +21,11 @@ public class MenuController {
     private MenuService menuService;
     @GetMapping("/all")
     public Result listMenu() {
-
         return menuService.listMenu();
     }
 
     @GetMapping("/{id}/all")
-    public Result listArticleByMenuId(@PathVariable("id") Integer id) {
-
-        return menuService.listArticleByMenuId(id);
+    public Result listAllCategoryByMenuId(@PathVariable("id") Integer id) throws InterruptedException {
+        return menuService.listAllCategoryByMenuId(id);
     }
 }

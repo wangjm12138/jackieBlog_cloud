@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import com.jackie.jackieblog.article.dao.ArticleServiceMapper;
+import com.jackie.jackieblog.article.dao.CategoryServiceMapper;
 import com.jackie.jackieblog.article.entity.Article;
+import com.jackie.jackieblog.article.entity.Category;
 import com.jackie.jackieblog.article.utils.PageParams;
 import com.jackie.jackieblog.article.vo.ArticleVo;
 import com.jackie.jackieblog.article.vo.WrapperToFrontend;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -35,6 +38,8 @@ public class ArticleService {
     @Autowired
     private ArticleServiceMapper articleServiceMapper;
 
+    @Autowired
+    private CategoryServiceMapper categoryServiceMapper;
 
     @Autowired
     private TagService tagService;
@@ -69,12 +74,15 @@ public class ArticleService {
 
     public Result listArticle(PageParams pageParams) {
         Page<Article> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
+        List<Integer> categoryIdList = new ArrayList<>();
+        if(pageParams.getMenuId()!=null) {
+            List<Category> categoryList = categoryServiceMapper.listCategoryByMenuId(pageParams.getMenuId());
+            categoryIdList = categoryList.stream().map((item) -> item.getId()).collect(Collectors.toList());
+        }
+        System.out.println(categoryIdList);
         IPage<Article> articleIPage = articleServiceMapper.listArticle(
                 page,
-                pageParams.getCategoryId(),
-                pageParams.getTagId(),
-                pageParams.getYear(),
-                pageParams.getMonth());
+                categoryIdList);
         List<Article> records = articleIPage.getRecords();
         System.out.println(records.size());
 //        for (Article record : records) {

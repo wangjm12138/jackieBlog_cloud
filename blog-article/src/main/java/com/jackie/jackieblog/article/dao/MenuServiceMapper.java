@@ -1,5 +1,6 @@
 package com.jackie.jackieblog.article.dao;
 
+import com.jackie.jackieblog.article.entity.Category;
 import com.jackie.jackieblog.article.entity.Menu;
 import com.jackie.jackieblog.article.vo.MenuByIdVo;
 
@@ -16,5 +17,5 @@ import java.util.List;
 public interface MenuServiceMapper {
     List<Menu> listMenu();
 
-    List<MenuByIdVo> listArticleByMenuId(Integer id);
+    List<MenuByIdVo> listAllCategoryByMenuId(Integer id);
 }

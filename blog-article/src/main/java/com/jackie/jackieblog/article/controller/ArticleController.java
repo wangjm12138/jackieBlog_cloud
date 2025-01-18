@@ -30,39 +30,20 @@ public class ArticleController {
      * @return
      */
     @PostMapping
-    public Result listArticle(@RequestBody PageParams pageParams){
-
+    public Result listArticle(@RequestBody PageParams pageParams) throws InterruptedException {
         return articleService.listArticle(pageParams);
     }
 
     @GetMapping("/detail/{Id}")
     public Result listArticleDetail(@PathVariable("Id") Long id) {
-
-        System.out.println(id);
-
         return articleBodyService.searchArticleById(id);
     }
 
-    @GetMapping("/test")
+    @GetMapping("/top4")
     public Result listArticleTop() {
-
-        return Result.success("successful");
+        Result a = articleService.listArticleTop();
+        return a;
     }
-
-
-//    @GetMapping("/top3")
-//    public Result listArticleTop() {
-//
-////        System.out.println(Id);
-////        try {
-////            Thread.sleep(10000);//毫秒数
-////        } catch (InterruptedException e) {
-////            e.printStackTrace();
-////        }
-//        Result a = articleService.listArticleTop();
-//        System.out.println(a);
-//        return a;
-//    }
 
 
 //    @GetMapping("/recent")

@@ -27,7 +27,7 @@ public class ArticleBodyService {
 
 
     public Result searchArticleById(Long id){
-
+        System.out.println(id);
         ArticleBody record = articleBodyServiceMapper.searchArticleById(id);
         return Result.success(record);
     }

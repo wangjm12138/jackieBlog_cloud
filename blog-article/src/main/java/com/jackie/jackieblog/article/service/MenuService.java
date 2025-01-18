@@ -29,9 +29,8 @@ public class MenuService {
         return Result.success(records);
     }
 
-    public Result listArticleByMenuId(Integer id) {
-
-        List<MenuByIdVo> records = menuServiceMapper.listArticleByMenuId(id);
+    public Result listAllCategoryByMenuId(Integer id) {
+        List<MenuByIdVo> records = menuServiceMapper.listAllCategoryByMenuId(id);
         return Result.success(records);
     }
 }

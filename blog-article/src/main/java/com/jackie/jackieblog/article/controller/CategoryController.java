@@ -27,6 +27,10 @@ public class CategoryController {
     }
 
 //    @GetMapping("/")
+//    public Result listArticleByCategoryId(@PathVariable("id") Integer menuId) {
+//        return categoryService.listCategoryByMenuId(categoryId);
+//    }
+//    @GetMapping("/")
 //    public Result listCategoryDetailsById(@RequestParam Integer categoryDetailsId) {
 //
 //        return categoryService.listCategoryById(categoryDetailsId);
