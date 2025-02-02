@@ -12,7 +12,3 @@ spring:
         server-addr: http://127.0.0.1:8848
   application:
     name: blog-article
-# 应用服务 WEB 访问端口
-server:
-  port: 9082
-  address: 0.0.0.0

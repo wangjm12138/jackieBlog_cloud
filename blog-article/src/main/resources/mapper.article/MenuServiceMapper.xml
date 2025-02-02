@@ -10,6 +10,19 @@
         <result column="amount" property="amount"/>
     </resultMap>
 
+    <resultMap id="AllMenuVo" type="com.jackie.jackieblog.article.vo.AllMenuVo">
+        <result column="menuId" property="menuId" />
+        <result column="menuName" property="menuName"/>
+        <result column="menuAmount" property="menuAmount"/>
+        <result column="categoryId" property="categoryId" />
+        <result column="categoryName" property="categoryName"/>
+        <result column="categoryAmount" property="categoryAmount"/>
+        <result column="categoryDetailsId" property="categoryDetailsId" />
+        <result column="categoryDetailsName" property="categoryDetailsName"/>
+        <result column="categoryDetailsAmount" property="categoryDetailsAmount"/>
+    </resultMap>
+
+
     <resultMap id="MenuByIdVo" type="com.jackie.jackieblog.article.vo.MenuByIdVo">
         <result column="categoryId" property="categoryId" />
         <result column="categoryName" property="categoryName"/>
@@ -20,8 +33,8 @@
     </resultMap>
 
 
-    <select id="listMenu" resultMap="Menu">
-        select * from jw_menu
+    <select id="listMenu" resultMap="AllMenuVo">
+        select jw_menu.id as menuId, jw_menu.name as menuName, jw_menu.amount as menuAmount, jw_category.id as categoryId, jw_category.`name` as categoryName, jw_category.amount as categoryAmount, jw_category_details.id as categoryDetailsId, jw_category_details.name as categoryDetailsName, jw_category_details.amount as categoryDetailsAmount from jw_menu LEFT JOIN jw_category on jw_menu.id = jw_category.menu_id LEFT JOIN jw_category_details on jw_category.id = jw_category_details.category_id
     </select>
 
 

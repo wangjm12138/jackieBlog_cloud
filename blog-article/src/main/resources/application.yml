@@ -6,12 +6,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # Druid datasource
 
-  cloud:
-    nacos:
-      discovery:
-        server-addr: http://jackieblog-nacos:8848
-  application:
-    name: blog-article
 # 应用服务 WEB 访问端口
 server:
   port: 9081

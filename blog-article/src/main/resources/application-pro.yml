@@ -6,9 +6,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # Druid datasource
 
-  profiles:
-    active: "dev"
-
   cloud:
     nacos:
       discovery:
@@ -17,7 +14,7 @@ spring:
     name: blog-article
 # 应用服务 WEB 访问端口
 server:
-  port: 9083
+  port: 9081
   address: 0.0.0.0
 
 mybatis-plus:

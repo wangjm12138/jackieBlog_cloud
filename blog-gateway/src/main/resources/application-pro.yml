@@ -7,10 +7,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: http://localhost:8848
+        server-addr: http://jackieblog-nacos:8848
     gateway:
       routes:
         - id: article_route
-          uri: http://127.0.0.1:9081
+          uri: http://jackieblog-backend:9081
           predicates:
             - Path=/api/**

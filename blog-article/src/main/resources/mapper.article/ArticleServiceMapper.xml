@@ -20,19 +20,35 @@
     </resultMap>
 
 
-    <select id="listArticle" resultMap="articleMap">
-        select * from jw_article
-        <where>
-            1 = 1
-            <if test="categoryIdList != null">
-                 and category_id IN
-                <foreach item="categoryIditem" collection="categoryIdList" open="(" separator="," close=")" index="">
-                    #{categoryIditem}
-                </foreach>
-            </if>
-        </where>
-        order by weight,create_date desc
-    </select>
+<!--    <select id="listArticle" resultMap="articleMap">-->
+<!--        select * from jw_article-->
+<!--        <where>-->
+<!--            1 = 1-->
+<!--            <if test="categoryIdList != null">-->
+<!--                 and category_id IN-->
+<!--                <foreach item="categoryIditem" collection="categoryIdList" open="(" separator="," close=")" index="">-->
+<!--                    #{categoryIditem}-->
+<!--                </foreach>-->
+<!--            </if>-->
+<!--        </where>-->
+<!--        order by weight,create_date desc-->
+<!--    </select>-->
+        <select id="listArticle" resultMap="articleMap">
+            select * from jw_article
+            <where>
+                1 = 1
+                <if test="menuId != -1">
+                     and menu_id = #{menuId}
+                </if>
+                <if test="categoryId != -1">
+                    and category_id = #{categoryId}
+                </if>
+                <if test="categoryDetailsId != -1">
+                    and category_details_id = #{categoryDetailsId}
+                </if>
+            </where>
+            order by weight,create_date desc
+        </select>
 
 
     <select id="listArticleTop" resultMap="articleMap">

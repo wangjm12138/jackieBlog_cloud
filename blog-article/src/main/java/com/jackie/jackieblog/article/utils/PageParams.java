@@ -16,8 +16,11 @@ public class PageParams {
 
     private int pageSize = 10;
 
-    private Integer menuId;
+    private Integer menuId = -1;
 
+    private Integer cateId = -1;
+
+    private Integer cateDetailsId = -1;
 //    private Integer tagId;
 //
 //    private String year;

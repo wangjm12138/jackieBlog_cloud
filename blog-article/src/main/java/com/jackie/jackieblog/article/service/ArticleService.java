@@ -74,15 +74,14 @@ public class ArticleService {
 
     public Result listArticle(PageParams pageParams) {
         Page<Article> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
-        List<Integer> categoryIdList = new ArrayList<>();
-        if(pageParams.getMenuId()!=null) {
-            List<Category> categoryList = categoryServiceMapper.listCategoryByMenuId(pageParams.getMenuId());
-            categoryIdList = categoryList.stream().map((item) -> item.getId()).collect(Collectors.toList());
-        }
-        System.out.println(categoryIdList);
+//        List<Integer> categoryIdList = new ArrayList<>();
+//        if(pageParams.getMenuId()!=null) {
+//            List<Category> categoryList = categoryServiceMapper.listCategoryByMenuId(pageParams.getMenuId());
+//            categoryIdList = categoryList.stream().map((item) -> item.getId()).collect(Collectors.toList());
+//        }
         IPage<Article> articleIPage = articleServiceMapper.listArticle(
                 page,
-                categoryIdList);
+                pageParams.getMenuId(),pageParams.getCateId(),pageParams.getCateDetailsId());
         List<Article> records = articleIPage.getRecords();
         System.out.println(records.size());
 //        for (Article record : records) {

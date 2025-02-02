@@ -13,9 +13,10 @@ public interface ArticleServiceMapper extends BaseMapper<Article> {
     //Article listArticle(Long id, Long categoryID, Long tagID, String year, String month);
 
 
+//    IPage<Article> listArticle(Page<Article> page,
+//                               @Param("categoryIdList") List<Integer> categoryIdList);
     IPage<Article> listArticle(Page<Article> page,
-                               @Param("categoryIdList") List<Integer> categoryIdList);
-
+                               @Param("menuId")Integer menuId, @Param("categoryId")Integer categoryId, @Param("categoryDetailsId")Integer categoryDetailsId);
 
     List<Article> listArticleTop();
 
