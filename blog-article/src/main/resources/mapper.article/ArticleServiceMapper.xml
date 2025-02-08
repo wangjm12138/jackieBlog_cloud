@@ -15,6 +15,7 @@
         <result column="love_num" property="loveNum"/>
         <result column="weight" property="weight"/>
         <result column="body_id" property="bodyId"/>
+        <result column="menu_id" property="menuId"/>
         <result column="category_id" property="categoryId"/>
         <result column="cover" property="cover"/>
     </resultMap>

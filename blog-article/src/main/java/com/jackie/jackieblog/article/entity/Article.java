@@ -48,6 +48,11 @@ public class Article {
     /**
      *类别id
      */
+    private Integer menuId;
+
+    /**
+     *类别id
+     */
     private Long categoryId;
 
     /**

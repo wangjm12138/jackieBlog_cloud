@@ -116,7 +116,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>com.jackie.jackieblog.gateway.BlogGatewayApplication</mainClass>
-                    <skip>true</skip>
+<!--                    <skip>true</skip>-->
                 </configuration>
                 <executions>
                     <execution>
